@@ -13,7 +13,7 @@ const generateDates = daysAgo => {
 
 const tasks = [
   {
-    id: uuid(),
+    id: ids.task.trainingPil.withNtco,
     data: {
       data: {
         name: 'trainingPil with ntco'

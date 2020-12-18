@@ -10,6 +10,9 @@ module.exports = {
       transfer: uuid(),
       asruinitiated: uuid()
     },
+    trainingPil: {
+      withNtco: uuid()
+    },
     place: {
       applied: uuid(),
       resolved: uuid(),

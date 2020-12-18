@@ -10,6 +10,7 @@ const {
   discardedByApplicant,
   recalledByApplicant
 } = require('../../../lib/flow/status');
+const ids = require('../../data/ids');
 
 describe('Establishment Admin', () => {
 
@@ -103,6 +104,18 @@ describe('Establishment Admin', () => {
             })
             .expect(200);
         });
+    });
+
+    it('cannot recall a training pil application', () => {
+      return request(this.workflow)
+        .put(`/${ids.task.trainingPil.withNtco}/status`)
+        .send({
+          status: recalledByApplicant.id,
+          meta: {
+            comment: 'attempting to recall a training pil'
+          }
+        })
+        .expect(400);
     });
 
     it('can discard a pil application', () => {
